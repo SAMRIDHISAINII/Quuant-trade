@@ -1,63 +1,55 @@
-# Base44 Project
+# 📈 QuantTrade AI — AI-Powered Stock Trading Platform
 
-Use this repository to run and edit the app locally, then publish changes back through Base44.
+**Predict. Analyze. Backtest. Trade.**
 
-Any change pushed to the repo will also be reflected in the Base44 Builder.
+QuantTrade AI is an AI-powered trading platform for Indian equities listed on the **National Stock Exchange (NSE)**. It combines quantitative analysis, machine-learning-driven stock signals, historical backtesting, paper trading, and risk management in one platform.
 
-## Prerequisites
+The platform analyzes daily market data for Nifty 100 stocks, generates directional signals, evaluates historical model performance, and supports trading workflows ranging from strategy research to Angel One integration.
 
-1. Clone the repository using the project's Git URL.
-2. Navigate to the project directory.
-3. Install dependencies: `npm install`.
-4. Install the Base44 CLI: `npm install -g base44@latest`.
-5. Install [Deno](https://docs.deno.com/runtime/getting_started/installation/) — the local Base44 backend runs on it.
+> **Market data disclaimer:** QuantTrade AI uses delayed end-of-day market data, not live tick-by-tick prices. Predictions are estimates, not guarantees of future performance.
 
-Run `base44 --help` (or see the [CLI reference](https://docs.base44.com/developers/references/cli/commands/introduction)) for the full command surface.
+## ✨ Features
 
-## Run Locally
+### 🔍 AI Stock Scanner
+- Scans Nifty 100 stocks using quantitative and AI-based scoring.
+- Classifies stocks as **Bullish, Bearish, or Neutral**.
+- Generates signals for the next trading session or the next five sessions.
+- Displays estimated price movement, stop-loss levels, and target prices.
+- Helps prioritize stocks for further analysis.
 
-Three commands, from the project root:
+### 📊 Stock Analysis
+- Interactive price charts and stock-level analysis.
+- Displays the latest signal, expected move, stop-loss, and target.
+- Supports deeper inspection of individual stocks before a trading decision.
 
-```bash
-base44 login   # one-time per machine
-base44 link    # one-time per clone
-base44 dev     # local backend + frontend together
-```
+### 🧠 Model Performance
+- Evaluates historical signal accuracy.
+- Measures how frequently predictions correctly identify price direction.
+- Helps assess model reliability across different market conditions.
 
-Open the frontend URL that `base44 dev` prints (typically `http://localhost:5173`).
+### 🧪 Backtesting Engine
+- Tests trading strategies against historical price data.
+- Supports custom indicator rules and strategy configurations.
+- Accounts for transaction costs and slippage.
+- Enables historical performance evaluation before paper or live trading.
 
-Notes:
+### 💹 Paper Trading
+- Simulates trades using virtual capital.
+- Tracks positions, executed trades, and profit or loss.
+- Provides a risk-free environment to evaluate strategies.
 
-- **Every fresh clone needs `base44 link`.** It writes `base44/.app.jsonc` (the app-id pointer), which is deliberately gitignored. Your app id is in the Builder URL (`app.base44.com/apps/<id>/...`); `base44 link --help` shows the non-interactive flags.
-- **`base44 dev` runs the frontend for you** (via `site.serveCommand` in this repo's `base44/config.jsonc`) — never run `npm run dev` yourself: alone it serves a UI with no backend behind it (`[base44] Proxy not enabled`, every `/api` call fails), and alongside `base44 dev` the second Vite silently takes the next port and you end up looking at the wrong one.
-- **The app must be published at least once for the UI to load under `base44 dev`.** The frontend boots by fetching app settings from the hosted app; before the first publish that fails and every page redirects to login. The local API works regardless.
-- Entities, functions, and auth run locally — entity data is **in-memory only**, wiped when `base44 dev` restarts. Everything else (Core integrations, OAuth login) is forwarded to your deployed app. Full breakdown: [Local development overview](https://docs.base44.com/developers/backend/overview/local-dev/local-development-overview).
+### 🛡️ Risk Management
+- Configurable risk per trade.
+- Daily loss limits.
+- Order-size restrictions.
+- Kill switch to stop further trading activity.
 
-## Frontend Only, Hosted Backend
+### ⚡ Angel One Live Trading
+- Integrates with Angel One for real order execution.
+- Supports manual order placement and configurable signal-based automation.
+- Requires valid Angel One credentials and appropriate API configuration before live orders can be submitted.
+- Designed to connect signal generation with execution controls and risk limits.
 
-To work on just the frontend against your app's live hosted backend:
+**Important:** Live trading should remain disabled until authentication, order validation, risk checks, and execution safeguards have been tested.
 
-```bash
-base44 dev --remote
-```
-
-⚠️ In this mode writes go to your app's **production data** — plain `base44 dev` keeps everything local.
-
-## Publish Your Changes
-
-After pushing your changes to git, open the Base44 dashboard and publish the app:
-
-```bash
-base44 dashboard open
-```
-
-This repo syncs to Base44 through git, so publish from the dashboard rather than `base44 deploy` — a CLI deploy ships your local tree directly, bypassing the sync, and the deployed state silently diverges from the repo.
-
-## Docs & Support
-
-GitHub integration: [https://docs.base44.com/developers/app-code/local-development/github](https://docs.base44.com/developers/app-code/local-development/github)
-
-Local development: [https://docs.base44.com/developers/backend/overview/local-dev/local-development-overview](https://docs.base44.com/developers/backend/overview/local-dev/local-development-overview)
-
-Support: [https://app.base44.com/support](https://app.base44.com/support)
-# Quuant-trade
+## 🔄 How
